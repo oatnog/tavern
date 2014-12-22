@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Your Tavern Name</title>
+    <script src="{{ url_for('static', filename='jquery-2.1.3.js') }}"></script>
+</head>
+<body>
+
+<h1>What kind of tavern name do you want?</h1>
+<div id="n_n">(Click me. example: The Goat & Candle)</div>
+<div id="ging_n">(No, click me. example: The Sneaking Cup)</div>
+<hr>
+<div id="tavern"></div>
+
+</body>
+
+<script type="text/javascript">
+    var s_nouns = [];
+    var f_nouns = [];
+    var gerunds = [];
+    var g_nouns = [];
+
+    $.getJSON("/starter_n", function( data ) {
+        s_nouns= Object.keys(data);
+    });
+
+    $.getJSON("/finisher_n", function( data ) {
+        f_nouns= Object.keys(data);
+    });
+
+    $.getJSON("/gerund", function( data ) {
+        gerunds= Object.keys(data);
+    });
+
+    $.getJSON("/gerund_n", function( data ) {
+        g_nouns= Object.keys(data);
+    });
+
+    $( "#n_n").click(function() {
+        var tavern_name = s_nouns[Math.floor(Math.random()*s_nouns.length)]
+            + " & " + f_nouns[Math.floor(Math.random()*f_nouns.length)];
+        document.getElementById("tavern").innerHTML = "Your Tavern is named The " + tavern_name;
+    });
+
+    $( "#ging_n").click(function() {
+        var tavern_name = gerunds[Math.floor(Math.random()*gerunds.length)]
+            + " " + g_nouns[Math.floor(Math.random()*g_nouns.length)];
+        document.getElementById("tavern").innerHTML = "Your Tavern is named The " + tavern_name;
+    });
+
+
+</script>
+</html>
