@@ -1,0 +1,25 @@
+body: { 
+	background-color: black;
+}
+
+#tavern {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 160px;
+  padding: 20px;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  font: normal 42px/1 "Bad Script", cursive, sans-serif;
+  color: rgba(0,0,0,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: #9b3706;
+  -webkit-box-shadow: 1px 1px 1px 5px rgba(201,155,30,0.3) ;
+  box-shadow: 1px 1px 1px 5px rgba(201,155,30,0.3) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
